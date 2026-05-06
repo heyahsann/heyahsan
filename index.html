@@ -33,8 +33,8 @@
     color: var(--text);
     font-family: var(--sans);
     font-weight: 300;
-    line-height: 1.7;
-    font-size: 15px;
+    line-height: 1.75;
+    font-size: 17px;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
@@ -137,10 +137,10 @@
     letter-spacing: 0.01em;
   }
   .hero-bio {
-    max-width: 560px;
-    font-size: 15px;
+    max-width: 600px;
+    font-size: 17px;
     color: rgba(232,228,217,0.7);
-    line-height: 1.8;
+    line-height: 1.85;
     margin-bottom: 48px;
     font-weight: 300;
   }
@@ -287,7 +287,7 @@
     opacity: 0.7;
   }
   .role-text {
-    font-size: 14px;
+    font-size: 16px;
     color: var(--text);
     font-weight: 400;
     line-height: 1.4;
@@ -344,9 +344,9 @@
     line-height: 1.2;
   }
   .exp-content p {
-    font-size: 14px;
+    font-size: 16px;
     color: rgba(232,228,217,0.65);
-    line-height: 1.8;
+    line-height: 1.85;
     margin-bottom: 16px;
     font-weight: 300;
   }
@@ -397,9 +397,9 @@
   }
   .skill-list { list-style: none; }
   .skill-list li {
-    font-size: 13px;
+    font-size: 15px;
     color: rgba(232,228,217,0.75);
-    padding: 6px 0;
+    padding: 7px 0;
     border-bottom: 1px solid rgba(255,255,255,0.04);
     font-weight: 300;
     display: flex;
@@ -527,6 +527,142 @@
     text-transform: uppercase;
   }
 
+  /* SELECTED WORK */
+  .work-list { display: flex; flex-direction: column; gap: 0; }
+  .work-item {
+    padding: 48px 0;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 48px;
+  }
+  .work-item:first-child { border-top: 1px solid var(--border); }
+  .work-year {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+  }
+  .work-tags-row { display: flex; flex-direction: column; gap: 6px; }
+  .work-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--amber);
+    text-transform: uppercase;
+    border: 1px solid rgba(200,146,42,0.25);
+    padding: 3px 8px;
+    width: fit-content;
+  }
+  .work-img-placeholder {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--bg3);
+    border: 1px dashed var(--border2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    text-align: center;
+    padding: 24px;
+  }
+  .work-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    margin-bottom: 24px;
+    display: block;
+  }
+  .work-content h3 {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .work-content p {
+    font-size: 15px;
+    color: rgba(232,228,217,0.6);
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+  .work-link {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    color: var(--amber);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .work-link:hover { color: var(--amber-light); }
+
+  /* WRITING */
+  .writing-list { display: flex; flex-direction: column; gap: 0; }
+  .writing-item {
+    display: grid;
+    grid-template-columns: 120px 1fr 32px;
+    gap: 32px;
+    align-items: start;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+  .writing-item:first-child { border-top: 1px solid var(--border); }
+  .writing-item:hover { background: rgba(200,146,42,0.03); }
+  .writing-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-top: 4px;
+  }
+  .writing-platform {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--amber);
+    text-transform: uppercase;
+  }
+  .writing-date {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+  .writing-body h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 8px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+  .writing-body p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .writing-arrow {
+    font-size: 18px;
+    color: var(--muted);
+    transition: transform 0.2s, color 0.2s;
+    margin-top: 4px;
+  }
+  .writing-item:hover .writing-arrow { transform: translate(4px, -4px); color: var(--amber-light); }
+
   /* SCROLL ANIMATIONS */
   .fade-up {
     opacity: 0;
@@ -560,7 +696,9 @@
   <span class="nav-name">Ahsan Habib Imrose</span>
   <ul class="nav-links">
     <li><a href="#roles">Roles</a></li>
+    <li><a href="#work">Work</a></li>
     <li><a href="#experience">Experience</a></li>
+    <li><a href="#writing">Writing</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -906,6 +1044,75 @@
       <div class="network-name">BDev Ventures</div>
       <div class="network-desc">Scout partner. BD-focused fund network.</div>
     </div>
+  </div>
+</section>
+
+<!-- SELECTED WORK -->
+<section id="work">
+  <div class="section-label">Selected Work</div>
+  <div class="work-list">
+    <div class="work-item fade-up">
+      <div class="work-meta">
+        <div class="work-year">2025</div>
+        <div class="work-tags-row">
+          <span class="work-tag">Built</span>
+          <span class="work-tag">Vibe Coded</span>
+          <span class="work-tag">Replit + AI</span>
+        </div>
+      </div>
+      <div class="work-content">
+        <div class="work-img-placeholder">
+          <span>Upload your Pomegranate screenshots here to replace this block</span>
+        </div>
+        <h3>Pomegranate — Fundraising Platform</h3>
+        <p>A fundraising platform built end-to-end using Replit and AI tools. Designed to streamline early-stage capital raising — connecting founders with investors through a structured deal flow interface. Built solo from zero, shipped in days.</p>
+        <a href="#" class="work-link">View project ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WRITING -->
+<section id="writing">
+  <div class="section-label">Writing</div>
+  <div class="writing-list fade-up">
+
+    <a class="writing-item" href="https://www.linkedin.com/posts/ahsan-habib-imrose_the-ai-companies-nobody-is-talking-about-activity-7445822909224419329-SNKj" target="_blank">
+      <div class="writing-meta">
+        <span class="writing-platform">LinkedIn</span>
+        <span class="writing-date">2026</span>
+      </div>
+      <div class="writing-body">
+        <h3>The AI companies nobody is talking about</h3>
+        <p>A breakdown of under-the-radar AI startups worth watching — the ones flying below the hype radar but building real infrastructure.</p>
+      </div>
+      <span class="writing-arrow">↗</span>
+    </a>
+
+    <a class="writing-item" href="https://www.linkedin.com/posts/ahsan-habib-imrose_travis-kalanick-just-ended-8-years-of-silence-activity-7447261446037753856-7HIT" target="_blank">
+      <div class="writing-meta">
+        <span class="writing-platform">LinkedIn</span>
+        <span class="writing-date">2026</span>
+      </div>
+      <div class="writing-body">
+        <h3>Travis Kalanick just ended 8 years of silence</h3>
+        <p>An analysis of Kalanick's return to the public eye — what it signals for his next move and what founders can learn from his comeback arc.</p>
+      </div>
+      <span class="writing-arrow">↗</span>
+    </a>
+
+    <a class="writing-item" href="https://www.linkedin.com/posts/ahsan-habib-imrose_%F0%9D%97%A7%F0%9D%97%B5%F0%9D%97%B2-%F0%9D%9F%B5%F0%9D%9F%B0%F0%9D%97%A0-%F0%9D%97%AF%F0%9D%97%B2%F0%9D%98%81-%F0%9D%98%81%F0%9D%97%B5%F0%9D%97%AE%F0%9D%98%81-%F0%9D%97%94%F0%9D%97%9C-%F0%9D%97%AE%F0%9D%97%B4%F0%9D%97%B2%F0%9D%97%BB%F0%9D%98%81%F0%9D%98%80-activity-7445012570585063424-A6Ed" target="_blank">
+      <div class="writing-meta">
+        <span class="writing-platform">LinkedIn</span>
+        <span class="writing-date">2026</span>
+      </div>
+      <div class="writing-body">
+        <h3>The $50M bet that AI agents will replace how we work</h3>
+        <p>A deep dive into the AI agent investment wave — which funds are betting big, which use cases are real, and what this means for operators building in the space.</p>
+      </div>
+      <span class="writing-arrow">↗</span>
+    </a>
+
   </div>
 </section>
 
