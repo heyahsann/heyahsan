@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahsan Habib Imrose — VC Scout · IR Manager · Ecosystem Builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a08;
+    --bg2: #111110;
+    --bg3: #1a1a17;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.12);
+    --text: #e8e4d9;
+    --muted: #7a7770;
+    --amber: #c8922a;
+    --amber-light: #e8b252;
+    --amber-dim: rgba(200,146,42,0.12);
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Outfit', sans-serif;
+    --mono: 'DM Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.75;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10,10,8,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-name {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 48px 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.1) 100%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 32px;
+    height: 1px;
+    background: var(--amber);
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(52px, 8vw, 96px);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--amber-light);
+  }
+  .hero-sub {
+    font-family: var(--serif);
+    font-size: clamp(18px, 2.5vw, 28px);
+    font-weight: 300;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 40px;
+    letter-spacing: 0.01em;
+  }
+  .hero-bio {
+    max-width: 600px;
+    font-size: 17px;
+    color: rgba(232,228,217,0.7);
+    line-height: 1.85;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--amber);
+    color: #0a0a08;
+    padding: 12px 28px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--amber-light); transform: translateY(-1px); }
+  .btn-ghost {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid var(--border2);
+    color: var(--muted);
+    padding: 12px 28px;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--text); color: var(--text); }
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: #4caf7d;
+    text-transform: uppercase;
+    border: 1px solid rgba(76,175,125,0.25);
+    padding: 8px 16px;
+    background: rgba(76,175,125,0.07);
+  }
+  .status-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #4caf7d;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 96px 48px;
+    border-top: 1px solid var(--border);
+  }
+  .section-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border2);
+    max-width: 80px;
+  }
+
+  /* STATS STRIP */
+  .stats-strip {
+    padding: 40px 48px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--bg2);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 32px;
+  }
+  .stat-item { text-align: center; }
+  .stat-number {
+    font-family: var(--serif);
+    font-size: 42px;
+    font-weight: 300;
+    color: var(--amber-light);
+    line-height: 1;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* ROLES SECTION */
+  .roles-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .role-col { background: var(--bg); padding: 40px; }
+  .role-col-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .role-item {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .role-item:last-child { border-bottom: none; }
+  .role-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--amber);
+    margin-top: 3px;
+    min-width: 16px;
+    opacity: 0.7;
+  }
+  .role-text {
+    font-size: 16px;
+    color: var(--text);
+    font-weight: 400;
+    line-height: 1.4;
+  }
+  .role-sub {
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--mono);
+    margin-top: 2px;
+  }
+
+  /* EXPERIENCE */
+  .exp-list { display: flex; flex-direction: column; gap: 0; }
+  .exp-item {
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 48px;
+    transition: background 0.2s;
+    cursor: default;
+  }
+  .exp-item:first-child { border-top: 1px solid var(--border); }
+  .exp-item:hover { background: rgba(200,146,42,0.03); }
+  .exp-meta { padding-top: 4px; }
+  .exp-period {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .exp-company {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--amber);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .exp-location {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 4px;
+    letter-spacing: 0.03em;
+  }
+  .exp-content h3 {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .exp-content p {
+    font-size: 16px;
+    color: rgba(232,228,217,0.65);
+    line-height: 1.85;
+    margin-bottom: 16px;
+    font-weight: 300;
+  }
+  .exp-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .exp-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.07em;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    text-transform: uppercase;
+  }
+  .exp-highlight {
+    margin-top: 12px;
+    padding: 12px 16px;
+    border-left: 2px solid var(--amber);
+    background: var(--amber-dim);
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--amber-light);
+    letter-spacing: 0.02em;
+    line-height: 1.6;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+  .skill-group {
+    background: var(--bg);
+    padding: 32px;
+  }
+  .skill-group-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .skill-list { list-style: none; }
+  .skill-list li {
+    font-size: 15px;
+    color: rgba(232,228,217,0.75);
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .skill-list li::before {
+    content: '';
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--amber);
+    opacity: 0.5;
+    flex-shrink: 0;
+  }
+  .skill-list li:last-child { border-bottom: none; }
+
+  /* AI SECTION */
+  .ai-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+  }
+  .ai-pill {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--amber-light);
+    border: 1px solid rgba(200,146,42,0.3);
+    background: var(--amber-dim);
+    padding: 6px 16px;
+  }
+
+  /* NETWORKS */
+  .network-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .network-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 24px;
+    transition: border-color 0.2s;
+  }
+  .network-card:hover { border-color: var(--border2); }
+  .network-name {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .network-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* FOOTER / CONTACT */
+  .contact-section {
+    padding: 96px 48px;
+    border-top: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .contact-heading {
+    font-family: var(--serif);
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+  .contact-heading em { font-style: italic; color: var(--amber-light); }
+  .contact-body {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 32px;
+    font-weight: 300;
+  }
+  .contact-links { display: flex; flex-direction: column; gap: 0; }
+  .contact-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--text);
+    transition: color 0.2s;
+  }
+  .contact-link:first-child { border-top: 1px solid var(--border); }
+  .contact-link:hover { color: var(--amber-light); }
+  .contact-link-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .contact-link-value {
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .arrow { font-size: 16px; opacity: 0.4; transition: transform 0.2s, opacity 0.2s; }
+  .contact-link:hover .arrow { transform: translate(4px, -4px); opacity: 1; }
+
+  footer {
+    padding: 24px 48px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer p {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .pom-gallery { margin-bottom: 24px; display: flex; flex-direction: column; gap: 8px; }
+  .pom-main { width: 100%; border-radius: 6px; display: block; border: 1px solid var(--border2); }
+  .pom-thumbs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .pom-thumbs img { width: 100%; border-radius: 6px; display: block; border: 1px solid var(--border2); cursor: pointer; transition: opacity 0.2s; }
+  .pom-thumbs img:hover { opacity: 0.85; }
+
+  /* SELECTED WORK */
+  .work-list { display: flex; flex-direction: column; gap: 0; }
+  .work-item {
+    padding: 48px 0;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 48px;
+  }
+  .work-item:first-child { border-top: 1px solid var(--border); }
+  .work-year {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+  }
+  .work-tags-row { display: flex; flex-direction: column; gap: 6px; }
+  .work-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--amber);
+    text-transform: uppercase;
+    border: 1px solid rgba(200,146,42,0.25);
+    padding: 3px 8px;
+    width: fit-content;
+  }
+  .work-img-placeholder {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--bg3);
+    border: 1px dashed var(--border2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    text-align: center;
+    padding: 24px;
+  }
+  .work-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    margin-bottom: 24px;
+    display: block;
+  }
+  .work-content h3 {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .work-content p {
+    font-size: 15px;
+    color: rgba(232,228,217,0.6);
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+  .work-link {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    color: var(--amber);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .work-link:hover { color: var(--amber-light); }
+
+  /* WRITING */
+  .writing-list { display: flex; flex-direction: column; gap: 0; }
+  .writing-item {
+    display: grid;
+    grid-template-columns: 120px 1fr 32px;
+    gap: 32px;
+    align-items: start;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+  .writing-item:first-child { border-top: 1px solid var(--border); }
+  .writing-item:hover { background: rgba(200,146,42,0.03); }
+  .writing-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-top: 4px;
+  }
+  .writing-platform {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--amber);
+    text-transform: uppercase;
+  }
+  .writing-date {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+  .writing-body h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 8px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+  .writing-body p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .writing-arrow {
+    font-size: 18px;
+    color: var(--muted);
+    transition: transform 0.2s, color 0.2s;
+    margin-top: 4px;
+  }
+  .writing-item:hover .writing-arrow { transform: translate(4px, -4px); color: var(--amber-light); }
+
+  /* SCROLL ANIMATIONS */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hero { padding: 0 24px 56px; }
+    section { padding: 64px 24px; }
+    .stats-strip { padding: 32px 24px; }
+    .roles-grid { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 12px; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .contact-section { grid-template-columns: 1fr; padding: 64px 24px; }
+    footer { flex-direction: column; gap: 8px; padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-name">Ahsan Habib Imrose</span>
+  <ul class="nav-links">
+    <li><a href="#roles">Roles</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#writing">Writing</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="border-top: none;">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-eyebrow">Available for new opportunities · Dhaka, Bangladesh</div>
+  <h1>Ahsan<br><em>Habib</em><br>Imrose</h1>
+  <p class="hero-sub">VC Scout · IR Manager · Ecosystem Builder</p>
+  <p class="hero-bio">
+    Operator-investor with 5+ years at the intersection of venture capital, investor relations, and startup ecosystem building.
+    I've sourced 200+ deals, managed 500+ investor relationships, and helped raise $1M+ for early-stage companies across APAC frontier markets.
+    I build with AI — from vibe coding to context engineering — and I bring that edge into every role I take on.
+  </p>
+  <div class="hero-actions">
+    <a class="btn-primary" href="mailto:imrose989@gmail.com">Get in Touch</a>
+    <a class="btn-ghost" href="https://bd.linkedin.com/in/ahsan-habib-imrose-1b8724110" target="_blank">LinkedIn</a>
+    <a class="btn-ghost" href="https://happenstance.ai/u/heyahsan" target="_blank">Happenstance</a>
+    <span class="status-badge"><span class="status-dot"></span>Open to opportunities</span>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <span class="stat-number">200+</span>
+    <span class="stat-label">Startups Evaluated</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-number">500+</span>
+    <span class="stat-label">Investor Relationships</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-number">$1M+</span>
+    <span class="stat-label">Capital Facilitated</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-number">50+</span>
+    <span class="stat-label">Deals Referred</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-number">6</span>
+    <span class="stat-label">VC Networks Active</span>
+  </div>
+</div>
+
+<!-- ROLES -->
+<section id="roles">
+  <div class="section-label">Open to</div>
+  <div class="roles-grid fade-up">
+    <div class="role-col">
+      <div class="role-col-title">Startups / Corporate</div>
+      <div class="role-item">
+        <span class="role-num">01</span>
+        <div>
+          <div class="role-text">Investor Relations</div>
+          <div class="role-sub">IR Manager · Head of IR</div>
+        </div>
+      </div>
+      <div class="role-item">
+        <span class="role-num">02</span>
+        <div>
+          <div class="role-text">Chief of Staff</div>
+          <div class="role-sub">Strategy & Operations</div>
+        </div>
+      </div>
+      <div class="role-item">
+        <span class="role-num">03</span>
+        <div>
+          <div class="role-text">Founder's Office</div>
+          <div class="role-sub">Strategic Execution</div>
+        </div>
+      </div>
+      <div class="role-item">
+        <span class="role-num">04</span>
+        <div>
+          <div class="role-text">Growth & Partnerships</div>
+          <div class="role-sub">BD · Strategic Alliances</div>
+        </div>
+      </div>
+      <div class="role-item">
+        <span class="role-num">05</span>
+        <div>
+          <div class="role-text">Talent & Scouting</div>
+          <div class="role-sub">People Operations</div>
+        </div>
+      </div>
+    </div>
+    <div class="role-col">
+      <div class="role-col-title">VC / Family Office / Accelerator</div>
+      <div class="role-item">
+        <span class="role-num">01</span>
+        <div>
+          <div class="role-text">Investment Analyst</div>
+          <div class="role-sub">Deal evaluation & sourcing</div>
+        </div>
+      </div>
+      <div class="role-item">
+        <span class="role-num">02</span>
+        <div>
+          <div class="role-text">Investment Associate</div>
+          <div class="role-sub">Pre-seed / Seed focus</div>
+        </div>
+      </div>
+      <div class="role-item">
+        <span class="role-num">03</span>
+        <div>
+          <div class="role-text">Investor Relations</div>
+          <div class="role-sub">LP comms · Fund IR</div>
+        </div>
+      </div>
+      <div class="role-item">
+        <span class="role-num">04</span>
+        <div>
+          <div class="role-text">Head of Programming & Partnerships</div>
+          <div class="role-sub">Accelerators · Incubators</div>
+        </div>
+      </div>
+      <div class="role-item">
+        <span class="role-num">05</span>
+        <div>
+          <div class="role-text">Chief of Staff to GP / Managing Partner</div>
+          <div class="role-sub">Fund operations · Execution</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Experience</div>
+  <div class="exp-list">
+
+    <div class="exp-item fade-up">
+      <div class="exp-meta">
+        <div class="exp-period">Mar 2025 — Present</div>
+        <div class="exp-company">Interactive Cares</div>
+        <div class="exp-location">Dhaka, Bangladesh</div>
+      </div>
+      <div class="exp-content">
+        <h3>Investor Relations Manager</h3>
+        <p>Lead all investor engagement and communication infrastructure for Bangladesh's leading AI-driven EdTech platform — on a mission to upskill 3.7M unemployed youth. Oversee pitch decks, financial models, and investment memoranda. Coordinate due diligence and negotiate terms with VC and PE investors.</p>
+        <div class="exp-highlight">↑ 30% boost in investor interactions through targeted engagement strategy</div>
+        <div class="exp-tags">
+          <span class="exp-tag">LP Relations</span>
+          <span class="exp-tag">Pitch Decks</span>
+          <span class="exp-tag">Financial Modeling</span>
+          <span class="exp-tag">Roadshows</span>
+          <span class="exp-tag">EdTech</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item fade-up">
+      <div class="exp-meta">
+        <div class="exp-period">Apr 2024 — Nov 2024</div>
+        <div class="exp-company">Pulsetech Ltd.</div>
+        <div class="exp-location">Dhaka, Bangladesh</div>
+      </div>
+      <div class="exp-content">
+        <h3>Chief of Staff</h3>
+        <p>Spearheaded investment readiness from zero — building the pitch narrative, financial model, and investor pipeline for a FinTech embedded financing play. Cultivated 30+ VC and angel relationships. Orchestrated banking partnerships and executed an OKR framework across the org to align growth with strategy.</p>
+        <div class="exp-highlight">$800K pre-seed secured · 20% MoM user growth · 35% operational efficiency gain</div>
+        <div class="exp-tags">
+          <span class="exp-tag">Pre-seed Fundraising</span>
+          <span class="exp-tag">Investor Pipeline</span>
+          <span class="exp-tag">OKR Framework</span>
+          <span class="exp-tag">FinTech</span>
+          <span class="exp-tag">Partnerships</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item fade-up">
+      <div class="exp-meta">
+        <div class="exp-period">Sep 2023 — Present</div>
+        <div class="exp-company">Hustle Fund</div>
+        <div class="exp-location">Angel Squad · Remote</div>
+      </div>
+      <div class="exp-content">
+        <h3>Angel Squad Member</h3>
+        <p>Part of a 1,500+ member angel investor community. Review 50 deals weekly, apply Hustle Fund's deal assessment framework, and actively refer quality opportunities across the network. Connected with 100+ angel investors and 50+ VCs through deal flow and co-investment discussions.</p>
+        <div class="exp-highlight">50+ deals referred · 10 currently in process · connected to 150+ investors</div>
+        <div class="exp-tags">
+          <span class="exp-tag">Deal Flow</span>
+          <span class="exp-tag">Due Diligence</span>
+          <span class="exp-tag">Angel Investing</span>
+          <span class="exp-tag">Network Building</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item fade-up">
+      <div class="exp-meta">
+        <div class="exp-period">Aug 2023 — Present</div>
+        <div class="exp-company">LvlUp Ventures</div>
+        <div class="exp-location">Los Angeles, CA · Remote</div>
+      </div>
+      <div class="exp-content">
+        <h3>Venture Scout Partner</h3>
+        <p>Source and evaluate early-stage companies from APAC and frontier markets for a US-based fund. Run full due diligence cycles — from founder interviews to deal assessment — and actively manage deals through to term sheet. Interview 10 founders weekly.</p>
+        <div class="exp-highlight">100+ deals scouted · 2 companies received term sheets · $10K–$100K ARR range</div>
+        <div class="exp-tags">
+          <span class="exp-tag">VC Scouting</span>
+          <span class="exp-tag">Deal Assessment</span>
+          <span class="exp-tag">Founder Interviews</span>
+          <span class="exp-tag">APAC</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item fade-up">
+      <div class="exp-meta">
+        <div class="exp-period">Jul 2023 — Jan 2024</div>
+        <div class="exp-company">Shomvob Technologies</div>
+        <div class="exp-location">Dhaka, Bangladesh</div>
+      </div>
+      <div class="exp-content">
+        <h3>Investor Relations Manager</h3>
+        <p>Identified 200+ pre-seed investors and made 50+ warm introductions to land the lead investor commitment. Built the full fundraising infrastructure — investment memo, data room, Notion dashboard, and investor CRM tracker — to close a $1.1M target round.</p>
+        <div class="exp-highlight">$500K lead commitment secured · 10+ active prospects nurtured to close</div>
+        <div class="exp-tags">
+          <span class="exp-tag">Fundraising</span>
+          <span class="exp-tag">Investment Memo</span>
+          <span class="exp-tag">Data Room</span>
+          <span class="exp-tag">CRM</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item fade-up">
+      <div class="exp-meta">
+        <div class="exp-period">Mar 2023 — Jul 2023</div>
+        <div class="exp-company">Station Dhaka</div>
+        <div class="exp-location">Dhaka, Bangladesh</div>
+      </div>
+      <div class="exp-content">
+        <h3>Community Manager</h3>
+        <p>Built and ran the startup community at Dhaka's leading incubator — acquiring 10 startups, mentors, and investors monthly. Designed the incubation curriculum, hosted founders' networking sessions, and directly supported 3 companies in closing pre-seed and seed rounds.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">Community Building</span>
+          <span class="exp-tag">Incubation</span>
+          <span class="exp-tag">Ecosystem</span>
+          <span class="exp-tag">Event Programming</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Skills & Tools</div>
+  <div class="skills-grid fade-up">
+    <div class="skill-group">
+      <div class="skill-group-title">Investing & Finance</div>
+      <ul class="skill-list">
+        <li>Startup Evaluation & Due Diligence</li>
+        <li>Investment Thesis Development</li>
+        <li>Financial Modeling & Analysis</li>
+        <li>Pitch Deck & Investment Memo</li>
+        <li>Deal Structuring & Assessment</li>
+        <li>LP/GP Relationship Management</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Operations & Strategy</div>
+      <ul class="skill-list">
+        <li>Investor Relations Management</li>
+        <li>Strategic Partnership Development</li>
+        <li>Business Development & Growth</li>
+        <li>Cross-functional Team Leadership</li>
+        <li>OKR Framework Implementation</li>
+        <li>Stakeholder Engagement</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Ecosystem & Community</div>
+      <ul class="skill-list">
+        <li>Startup Ecosystem Building</li>
+        <li>Community Management</li>
+        <li>Program Design & Implementation</li>
+        <li>Founder Mentorship</li>
+        <li>Event Programming</li>
+        <li>Network Activation (APAC, MENA, NA)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top: 48px;">AI & Vibe Coding Stack</div>
+  <p style="font-size:14px; color: var(--muted); margin-bottom: 20px; font-weight: 300; max-width: 560px;">
+    I build, design, and ship with AI — from context engineering to full product workflows. Current stack:
+  </p>
+  <div class="ai-tools fade-up">
+    <span class="ai-pill">Claude</span>
+    <span class="ai-pill">ChatGPT</span>
+    <span class="ai-pill">Manus AI</span>
+    <span class="ai-pill">Genspark</span>
+    <span class="ai-pill">Replit</span>
+    <span class="ai-pill">Vibe Coding</span>
+    <span class="ai-pill">Context Engineering</span>
+    <span class="ai-pill">HubSpot</span>
+    <span class="ai-pill">Salesforce</span>
+    <span class="ai-pill">Airtable</span>
+    <span class="ai-pill">Notion</span>
+    <span class="ai-pill">Attio</span>
+    <span class="ai-pill">Crunchbase</span>
+    <span class="ai-pill">Pitchbook</span>
+    <span class="ai-pill">Visible.VC</span>
+    <span class="ai-pill">Apollo</span>
+    <span class="ai-pill">LinkedIn Sales Navigator</span>
+    <span class="ai-pill">Zapier</span>
+    <span class="ai-pill">Foundersuite</span>
+  </div>
+
+  <div class="section-label" style="margin-top: 64px;">Active Networks</div>
+  <div class="network-grid fade-up">
+    <div class="network-card">
+      <div class="network-name">Hustle Fund · Angel Squad</div>
+      <div class="network-desc">1,500+ angel investor community. 50 deals reviewed weekly.</div>
+    </div>
+    <div class="network-card">
+      <div class="network-name">LvlUp Ventures</div>
+      <div class="network-desc">Venture Scout Partner. Pre-seed & seed sourcing, APAC frontier.</div>
+    </div>
+    <div class="network-card">
+      <div class="network-name">Cocoon Capital</div>
+      <div class="network-desc">Scout network. Southeast Asia deal flow.</div>
+    </div>
+    <div class="network-card">
+      <div class="network-name">Render Capital</div>
+      <div class="network-desc">Scout network. Frontier market sourcing.</div>
+    </div>
+    <div class="network-card">
+      <div class="network-name">Redbud VC</div>
+      <div class="network-desc">Scout partner. Early-stage deal pipeline.</div>
+    </div>
+    <div class="network-card">
+      <div class="network-name">BDev Ventures</div>
+      <div class="network-desc">Scout partner. BD-focused fund network.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SELECTED WORK -->
+<section id="work">
+  <div class="section-label">Selected Work</div>
+  <div class="work-list">
+    <div class="work-item fade-up">
+      <div class="work-meta">
+        <div class="work-year">2026</div>
+        <div class="work-tags-row">
+          <span class="work-tag">Built</span>
+          <span class="work-tag">Vibe Coded</span>
+          <span class="work-tag">Replit + AI</span>
+        </div>
+      </div>
+      <div class="work-content">
+        <div class="pom-gallery">
+          <img class="pom-main" src="pom1.png" alt="Pomegranate — hero" />
+          <div class="pom-thumbs">
+            <img src="pom2.png" alt="Pomegranate — problem section" />
+            <img src="pom3.png" alt="Pomegranate — round architecture engine" />
+          </div>
+        </div>
+        <h3>Pomegranate — Fundraising Platform</h3>
+        <p>A GPT-4o powered round architecture engine for founders. Sequences investors in waves, maps warm intro paths, and runs a 30-day War Room to close rounds faster. Built solo from zero using Replit and AI — shipped in days, not months.</p>
+        <a href="https://fundraising-scale--pomegranatee.replit.app/" target="_blank" class="work-link">View live project ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WRITING -->
+<section id="writing">
+  <div class="section-label">Writing</div>
+  <div class="writing-list fade-up">
+
+    <a class="writing-item" href="https://www.linkedin.com/posts/ahsan-habib-imrose_the-ai-companies-nobody-is-talking-about-activity-7445822909224419329-SNKj" target="_blank">
+      <div class="writing-meta">
+        <span class="writing-platform">LinkedIn</span>
+        <span class="writing-date">2024</span>
+      </div>
+      <div class="writing-body">
+        <h3>The AI companies nobody is talking about</h3>
+        <p>A breakdown of under-the-radar AI startups worth watching — the ones flying below the hype radar but building real infrastructure.</p>
+      </div>
+      <span class="writing-arrow">↗</span>
+    </a>
+
+    <a class="writing-item" href="https://www.linkedin.com/posts/ahsan-habib-imrose_travis-kalanick-just-ended-8-years-of-silence-activity-7447261446037753856-7HIT" target="_blank">
+      <div class="writing-meta">
+        <span class="writing-platform">LinkedIn</span>
+        <span class="writing-date">2024</span>
+      </div>
+      <div class="writing-body">
+        <h3>Travis Kalanick just ended 8 years of silence</h3>
+        <p>An analysis of Kalanick's return to the public eye — what it signals for his next move and what founders can learn from his comeback arc.</p>
+      </div>
+      <span class="writing-arrow">↗</span>
+    </a>
+
+    <a class="writing-item" href="https://www.linkedin.com/posts/ahsan-habib-imrose_%F0%9D%97%A7%F0%9D%97%B5%F0%9D%97%B2-%F0%9D%9F%B5%F0%9D%9F%B0%F0%9D%97%A0-%F0%9D%97%AF%F0%9D%97%B2%F0%9D%98%81-%F0%9D%98%81%F0%9D%97%B5%F0%9D%97%AE%F0%9D%98%81-%F0%9D%97%94%F0%9D%97%9C-%F0%9D%97%AE%F0%9D%97%B4%F0%9D%97%B2%F0%9D%97%BB%F0%9D%98%81%F0%9D%98%80-activity-7445012570585063424-A6Ed" target="_blank">
+      <div class="writing-meta">
+        <span class="writing-platform">LinkedIn</span>
+        <span class="writing-date">2024</span>
+      </div>
+      <div class="writing-body">
+        <h3>The $50M bet that AI agents will replace how we work</h3>
+        <p>A deep dive into the AI agent investment wave — which funds are betting big, which use cases are real, and what this means for operators building in the space.</p>
+      </div>
+      <span class="writing-arrow">↗</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div>
+    <h2 class="contact-heading">Let's build something <em>together.</em></h2>
+    <p class="contact-body">
+      Whether you're a VC looking for a sharp scout, a founder needing a Chief of Staff,
+      or a fund that wants a strong IR partner — I'm open to the conversation.
+      Based in Dhaka, available across time zones.
+    </p>
+    <a href="mailto:imrose989@gmail.com" class="btn-primary" style="display: inline-block;">Send a Message</a>
+  </div>
+  <div>
+    <div class="contact-links">
+      <a href="mailto:imrose989@gmail.com" class="contact-link">
+        <div>
+          <div class="contact-link-label">Email</div>
+          <div class="contact-link-value">imrose989@gmail.com</div>
+        </div>
+        <span class="arrow">↗</span>
+      </a>
+      <a href="https://bd.linkedin.com/in/ahsan-habib-imrose-1b8724110" target="_blank" class="contact-link">
+        <div>
+          <div class="contact-link-label">LinkedIn</div>
+          <div class="contact-link-value">ahsan-habib-imrose</div>
+        </div>
+        <span class="arrow">↗</span>
+      </a>
+      <a href="https://happenstance.ai/u/heyahsan" target="_blank" class="contact-link">
+        <div>
+          <div class="contact-link-label">Happenstance</div>
+          <div class="contact-link-value">happenstance.ai/u/heyahsan</div>
+        </div>
+        <span class="arrow">↗</span>
+      </a>
+      <a href="https://x.com/HeyaImrose" target="_blank" class="contact-link">
+        <div>
+          <div class="contact-link-label">X / Twitter</div>
+          <div class="contact-link-value">@HeyaImrose</div>
+        </div>
+        <span class="arrow">↗</span>
+      </a>
+      <a href="tel:+8801710107393" class="contact-link">
+        <div>
+          <div class="contact-link-label">Phone</div>
+          <div class="contact-link-value">+880 1710 107393</div>
+        </div>
+        <span class="arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Ahsan Habib Imrose · Dhaka, Bangladesh</p>
+  <p>VC Scout · IR Manager · Ecosystem Builder</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
