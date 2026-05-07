@@ -527,6 +527,12 @@
     text-transform: uppercase;
   }
 
+  .pom-gallery { margin-bottom: 24px; display: flex; flex-direction: column; gap: 8px; }
+  .pom-main { width: 100%; border-radius: 6px; display: block; border: 1px solid var(--border2); }
+  .pom-thumbs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .pom-thumbs img { width: 100%; border-radius: 6px; display: block; border: 1px solid var(--border2); cursor: pointer; transition: opacity 0.2s; }
+  .pom-thumbs img:hover { opacity: 0.85; }
+
   /* SELECTED WORK */
   .work-list { display: flex; flex-direction: column; gap: 0; }
   .work-item {
@@ -1053,7 +1059,7 @@
   <div class="work-list">
     <div class="work-item fade-up">
       <div class="work-meta">
-        <div class="work-year">2025</div>
+        <div class="work-year">2026</div>
         <div class="work-tags-row">
           <span class="work-tag">Built</span>
           <span class="work-tag">Vibe Coded</span>
@@ -1066,7 +1072,7 @@
         </div>
         <h3>Pomegranate — Fundraising Platform</h3>
         <p>A fundraising platform built end-to-end using Replit and AI tools. Designed to streamline early-stage capital raising — connecting founders with investors through a structured deal flow interface. Built solo from zero, shipped in days.</p>
-        <a href="#" class="work-link">View project ↗</a>
+        <a href="https://fundraising-scale--pomegranatee.replit.app/" target="_blank" class="work-link">View project ↗</a>
       </div>
     </div>
   </div>
@@ -1080,7 +1086,7 @@
     <a class="writing-item" href="https://www.linkedin.com/posts/ahsan-habib-imrose_the-ai-companies-nobody-is-talking-about-activity-7445822909224419329-SNKj" target="_blank">
       <div class="writing-meta">
         <span class="writing-platform">LinkedIn</span>
-        <span class="writing-date">2026</span>
+        <span class="writing-date">2024</span>
       </div>
       <div class="writing-body">
         <h3>The AI companies nobody is talking about</h3>
@@ -1092,7 +1098,7 @@
     <a class="writing-item" href="https://www.linkedin.com/posts/ahsan-habib-imrose_travis-kalanick-just-ended-8-years-of-silence-activity-7447261446037753856-7HIT" target="_blank">
       <div class="writing-meta">
         <span class="writing-platform">LinkedIn</span>
-        <span class="writing-date">2026</span>
+        <span class="writing-date">2024</span>
       </div>
       <div class="writing-body">
         <h3>Travis Kalanick just ended 8 years of silence</h3>
@@ -1104,7 +1110,7 @@
     <a class="writing-item" href="https://www.linkedin.com/posts/ahsan-habib-imrose_%F0%9D%97%A7%F0%9D%97%B5%F0%9D%97%B2-%F0%9D%9F%B5%F0%9D%9F%B0%F0%9D%97%A0-%F0%9D%97%AF%F0%9D%97%B2%F0%9D%98%81-%F0%9D%98%81%F0%9D%97%B5%F0%9D%97%AE%F0%9D%98%81-%F0%9D%97%94%F0%9D%97%9C-%F0%9D%97%AE%F0%9D%97%B4%F0%9D%97%B2%F0%9D%97%BB%F0%9D%98%81%F0%9D%98%80-activity-7445012570585063424-A6Ed" target="_blank">
       <div class="writing-meta">
         <span class="writing-platform">LinkedIn</span>
-        <span class="writing-date">2026</span>
+        <span class="writing-date">2024</span>
       </div>
       <div class="writing-body">
         <h3>The $50M bet that AI agents will replace how we work</h3>
@@ -1169,12 +1175,12 @@
 </div>
 
 <footer>
-  <p>© 2025 Ahsan Habib Imrose · Dhaka, Bangladesh</p>
+  <p>© 2026 Ahsan Habib Imrose · Dhaka, Bangladesh</p>
   <p>VC Scout · IR Manager · Ecosystem Builder</p>
 </footer>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver((entries) => {2025
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
         setTimeout(() => entry.target.classList.add('visible'), i * 60);
